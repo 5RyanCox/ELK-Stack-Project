@@ -1,6 +1,0 @@
-![Install_ELK.yml](https://github.com/5RyanCox/ELK-Stack-Project/blob/8d7e212dce7a76f39a8d03d1fc2af3d060501f35/Ansible/Install_ELK.yml)
-
-
-https://github.com/5RyanCox/ELK-Stack-Project/blob/Ansible/Install_ELK.yml
-
-https://github.com/5RyanCox/ELK-Stack-Project/blob/d2841a0cb2f60bc143b5d48ec1eca660c4dc939a/Ansible/Install_ELK.yml
