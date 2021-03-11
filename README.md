@@ -88,13 +88,21 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the [filebeat_config.yml](https://github.com/5RyanCox/ELK-Stack-Project/blob/1e962c0c8cfd60b9be54f8ea914f43b529130dfc/Ansible/Filebeat-playbook.yml) and [metricbeat_config.yml](https://github.com/5RyanCox/ELK-Stack-Project/blob/b432d9b89ae9283c00bbca1409ebb5cd8ecf619f/Ansible/Metricbeats_config.yml.txt) files to the ./etc/ansible/files/filebeat_config.yml directory.
+- Update the filebeat and metricbeat configuration files to include the new ELK server IP address on lines 1106 and 1806. This configures the tools to the ELK server when the YAML playbook is run. 
+- This also includes updating the host.config file. This tells Ansible to run the playbook on the ELK server. This is added as an ELK server in the host file with the ELK VM IP address. The filebeat/metricbeat tools will be installed on this as well, in order to monitor the other webservers.  
+- Run the playbook, and navigate to Project 1 ELK server to check that the installation worked as expected. Run docker ps.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+ _Which URL do you navigate to in order to check that the ELK server is running?
+- http://[ELK_server_public_IP]:5601 - This will confirm the connection to the internet with the new ELK server.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+- ssh RedTeamAdmin@JumpBox(PrivateIP)
+- sudo docker start container (name of the container)
+- sudo docker attach container (name of the container)
+- cd /etc/ansible/
+- ansible-playbook Install_ELK.yml - This runs and starts the ELK container
+- cd /etc/ansible/roles/
+- ansible-playbook filebeat-playbook.yml (installs Filebeat and Metricbeat)
+- start web browser [ELK_server_public_IP]:5601
